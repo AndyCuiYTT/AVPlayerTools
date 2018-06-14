@@ -21,24 +21,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var sliderView: UISlider!
     
     let tools = YTTPlayerTools()
-    let data = [YTTMediaInfo(url: "http://up.mcyt.net/?down/32476.mp3", title: "执着", singer: "黄勇", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32471.mp3", title: "鱼", singer: "黄霄雲", image: UIImage(named: "tmp") ),
+    let data = [YTTMediaInfo(url: "http://up.mcyt.net/?down/32471.mp3", title: "鱼", singer: "黄霄雲", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32469.mp3", title: "我的天空", singer: "贝贝 / 修儿", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32476.mp3", title: "执着", singer: "黄勇", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32471.mp3", title: "鱼", singer: "黄霄雲", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32469.mp3", title: "我的天空", singer: "贝贝 / 修儿", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32476.mp3", title: "执着", singer: "黄勇", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32471.mp3", title: "鱼", singer: "黄霄雲", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32469.mp3", title: "我的天空", singer: "贝贝 / 修儿", image: UIImage(named: "tmp") )
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/32476.mp3", title: "执着", singer: "黄勇", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: UIImage(named: "tmp") )
         
     ]
     
@@ -79,7 +75,7 @@ class ViewController: UIViewController {
 extension ViewController: YTTPlayerProtocol {
     
     func player(_ player: YTTPlayerTools, loadFailedAt index: Int) {
-        player.next()
+       player.next()
     }
     
     func numberOfMedia(_ player: YTTPlayerTools) -> Int {
@@ -87,6 +83,7 @@ extension ViewController: YTTPlayerProtocol {
     }
     
     func player(_ player: YTTPlayerTools, playAt index: Int) -> YTTMediaInfo {
+        print(index)
         return data[index]
     }
     

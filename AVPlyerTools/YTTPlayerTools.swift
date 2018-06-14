@@ -46,6 +46,10 @@ struct YTTMediaInfo {
     
 }
 
+/**
+ *  开启子线程,降换歌放到子线程
+ *  添加 AVAsset 检测,排除不可播放音频
+ */
 
 class YTTPlayerTools: NSObject {
 
@@ -88,13 +92,13 @@ class YTTPlayerTools: NSObject {
                 self?.delegate?.player(self!, currentTime: cmTime.seconds, totalTime: totalTime.seconds)
             }
         })
+        
     }
     
     
     @objc func play() {
         player?.play()
         delegate?.playerStartPlay(self)
-        
         if var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo {
             dic[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
             dic[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: self.currentPlayItem?.currentTime().seconds ?? 0)
@@ -123,33 +127,25 @@ class YTTPlayerTools: NSObject {
     }
     
     @objc func next() {
-        
         if let count = delegate?.numberOfMedia(self) {
             if currentIndex + 1 < count {
-                currentIndex = currentIndex + 1
+                exchagePlayItem(atIndex: currentIndex + 1)
             } else if currentIndex + 1 == count {
-                currentIndex = 0
+                exchagePlayItem(atIndex: 0)
             }
-        }
-        
-        if let media = delegate?.player(self, playAt: currentIndex) {
-            exchagePlayItem(media)
         }
     }
     
     @objc func previous() {
         
         if currentIndex > 0 {
-            currentIndex = currentIndex - 1
+            exchagePlayItem(atIndex: currentIndex - 1)
         }else if currentIndex == 0 {
             if let count = delegate?.numberOfMedia(self) {
-                currentIndex = count
+                exchagePlayItem(atIndex: count - 1)
             }
         }
-        
-        if let media = delegate?.player(self, playAt: currentIndex) {
-            exchagePlayItem(media)
-        }
+    
     }
     
     
@@ -173,30 +169,41 @@ class YTTPlayerTools: NSObject {
     func exchagePlayItem(atIndex index: Int) {
         if let media = delegate?.player(self, playAt: index) {
             currentIndex = index
-            exchagePlayItem(media)
+            
+            DispatchQueue.init(label: "com.andy.cui.player", qos: .default, attributes: .concurrent).async {
+                self.exchagePlayItem(media)
+            }
         }
     }
     
     private func exchagePlayItem(_ mediaInfo: YTTMediaInfo) {
         if let url = URL(string: mediaInfo.url) {
+            player?.pause()
+            let asset = AVAsset(url: url)
+            guard asset.isPlayable else{
+                delegate?.player(self, loadFailedAt: currentIndex)
+                return
+            }
+            let playItem = AVPlayerItem(asset: asset)
             currentPlayItem?.removeObserver(self, forKeyPath: "status")
             currentPlayItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
-            let asset = AVAsset(url: url)
-            let playItem = AVPlayerItem(asset: asset)
-            currentPlayItem = playItem
-            // 监听 playerItem 状态变化
-            currentPlayItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
-            // 监听缓存时间
-            currentPlayItem?.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
             
-            player?.replaceCurrentItem(with: playItem)
+            // 监听 playerItem 状态变化
+            playItem.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+            // 监听缓存时间
+            playItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
+            DispatchQueue.main.async {
+                self.player?.replaceCurrentItem(with: playItem)
+            }
+            
+            currentPlayItem = playItem
             setLockScreenPlayingInfo(mediaInfo)
         }
     }
     
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
+                
         if object is AVPlayerItem {
             if keyPath == "status" {
                 if let playerItem = object as? AVPlayerItem {
@@ -204,10 +211,9 @@ class YTTPlayerTools: NSObject {
                     case .readyToPlay:
                         self.play()
                     case .failed:
-                        delegate?.player(self, loadFailedAt: currentIndex)
                         print("加载失败")
                     default:
-                        print("加载失败")
+                        print("加载")
                     }
                 }
             }
