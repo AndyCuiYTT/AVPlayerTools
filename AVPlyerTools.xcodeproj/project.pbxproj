@@ -12,6 +12,8 @@
 		70714E4620D0A1110028933C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70714E4420D0A1110028933C /* Main.storyboard */; };
 		70714E4820D0A1140028933C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70714E4720D0A1140028933C /* Assets.xcassets */; };
 		70714E4B20D0A1140028933C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70714E4920D0A1140028933C /* LaunchScreen.storyboard */; };
+		70714E5320D0A12E0028933C /* YTTPlayerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70714E5220D0A12E0028933C /* YTTPlayerTools.swift */; };
+		707685CA20D0E6DC00FA1A27 /* tmp.png in Resources */ = {isa = PBXBuildFile; fileRef = 707685C920D0E6DB00FA1A27 /* tmp.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		70714E4720D0A1140028933C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70714E4A20D0A1140028933C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70714E4C20D0A1140028933C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70714E5220D0A12E0028933C /* YTTPlayerTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTPlayerTools.swift; sourceTree = "<group>"; };
+		707685C920D0E6DB00FA1A27 /* tmp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tmp.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +58,14 @@
 		70714E3F20D0A1110028933C /* AVPlyerTools */ = {
 			isa = PBXGroup;
 			children = (
+				707685C920D0E6DB00FA1A27 /* tmp.png */,
 				70714E4020D0A1110028933C /* AppDelegate.swift */,
 				70714E4220D0A1110028933C /* ViewController.swift */,
 				70714E4420D0A1110028933C /* Main.storyboard */,
 				70714E4720D0A1140028933C /* Assets.xcassets */,
 				70714E4920D0A1140028933C /* LaunchScreen.storyboard */,
 				70714E4C20D0A1140028933C /* Info.plist */,
+				70714E5220D0A12E0028933C /* YTTPlayerTools.swift */,
 			);
 			path = AVPlyerTools;
 			sourceTree = "<group>";
@@ -96,6 +102,11 @@
 				TargetAttributes = {
 					70714E3C20D0A1110028933C = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -125,6 +136,7 @@
 				70714E4B20D0A1140028933C /* LaunchScreen.storyboard in Resources */,
 				70714E4820D0A1140028933C /* Assets.xcassets in Resources */,
 				70714E4620D0A1110028933C /* Main.storyboard in Resources */,
+				707685CA20D0E6DC00FA1A27 /* tmp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +149,7 @@
 			files = (
 				70714E4320D0A1110028933C /* ViewController.swift in Sources */,
 				70714E4120D0A1110028933C /* AppDelegate.swift in Sources */,
+				70714E5320D0A12E0028933C /* YTTPlayerTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +294,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKX4NKH59R;
 				INFOPLIST_FILE = AVPlyerTools/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,7 +313,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKX4NKH59R;
 				INFOPLIST_FILE = AVPlyerTools/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

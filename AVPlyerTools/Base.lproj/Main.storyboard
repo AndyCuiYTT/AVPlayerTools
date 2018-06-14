@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,55 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AVPlyerTools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-Tt-vCO">
+                                <rect key="frame" x="68" y="318.5" width="66" height="30"/>
+                                <state key="normal" title="上一首"/>
+                                <connections>
+                                    <action selector="pre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCO-p7-mDP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFD-IN-Jgf">
+                                <rect key="frame" x="154" y="318.5" width="66" height="30"/>
+                                <state key="normal" title="暂停/播放"/>
+                                <connections>
+                                    <action selector="pause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hfd-Q4-VKW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZ8-mg-RZr">
+                                <rect key="frame" x="240" y="318.5" width="66" height="30"/>
+                                <state key="normal" title="下一首"/>
+                                <connections>
+                                    <action selector="next:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vMf-UB-fzN"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mt7-H5-BMW">
+                                <rect key="frame" x="18" y="268.5" width="339" height="31"/>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zFD-IN-Jgf" firstAttribute="width" secondItem="B7r-Tt-vCO" secondAttribute="width" id="8EA-ab-7Fh"/>
+                            <constraint firstItem="AZ8-mg-RZr" firstAttribute="width" secondItem="B7r-Tt-vCO" secondAttribute="width" id="EWX-Oc-23x"/>
+                            <constraint firstItem="Mt7-H5-BMW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LVo-oN-Qhf"/>
+                            <constraint firstItem="zFD-IN-Jgf" firstAttribute="leading" secondItem="B7r-Tt-vCO" secondAttribute="trailing" constant="20" id="UBt-th-Ch9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mt7-H5-BMW" secondAttribute="trailing" constant="20" id="UP9-VO-wkO"/>
+                            <constraint firstItem="AZ8-mg-RZr" firstAttribute="leading" secondItem="zFD-IN-Jgf" secondAttribute="trailing" constant="20" id="dmu-gw-hLn"/>
+                            <constraint firstItem="AZ8-mg-RZr" firstAttribute="centerY" secondItem="B7r-Tt-vCO" secondAttribute="centerY" id="hLH-DC-JZD"/>
+                            <constraint firstItem="zFD-IN-Jgf" firstAttribute="centerY" secondItem="B7r-Tt-vCO" secondAttribute="centerY" id="nHl-vc-FlR"/>
+                            <constraint firstItem="zFD-IN-Jgf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nsu-NK-vLk"/>
+                            <constraint firstItem="B7r-Tt-vCO" firstAttribute="top" secondItem="Mt7-H5-BMW" secondAttribute="bottom" constant="20" id="o62-3i-wn5"/>
+                            <constraint firstItem="zFD-IN-Jgf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pwP-fE-zIG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="sliderView" destination="Mt7-H5-BMW" id="lQd-zb-OZ9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
