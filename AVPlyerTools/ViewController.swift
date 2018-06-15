@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  AVPlyerTools
 //
-//  Created by qiuweniOS on 2018/6/13.
+//  Created by AndyCui on 2018/6/13.
 //  Copyright © 2018年 AndyCuiYTT. All rights reserved.
 //
 
@@ -21,20 +21,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var sliderView: UISlider!
     
     let tools = YTTPlayerTools()
-    let data = [YTTMediaInfo(url: "http://up.mcyt.net/?down/32471.mp3", title: "鱼", singer: "黄霄雲", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32469.mp3", title: "我的天空", singer: "贝贝 / 修儿", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32476.mp3", title: "执着", singer: "黄勇", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
+    let data = [YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32476.mp3", title: "执着", singer: "黄勇", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32476.mp3", title: "执着", singer: "黄勇", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: UIImage(named: "tmp") )
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47744.mp3", title: "一万个理由", singer: "郑源", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47740.mp3", title: "洋葱", singer: "五月天", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47746.mp3", title: "为什么相爱的人不能在一起", singer: "郑源", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47745.mp3", title: "我不后悔", singer: "郑源", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47754.mp3", title: "飞行时刻", singer: "韩红", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47747.mp3", title: "偏爱", singer: "张芸京", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47752.mp3", title: "A Little Love", singer: "冯曦妤", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47734.mp3", title: "哑巴", singer: "薛之谦", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/46879.mp3", title: "等一分钟", singer: "Dj晓杰&彭芳", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47715.mp3", title: "Take Me Home Country Road", singer: "John Denver", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47751.mp3", title: "遥不可及的你", singer: "花粥", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47748.mp3", title: "春泥", singer: "庾澄庆", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47753.mp3", title: "faded", singer: "mathias fritsche", image: UIImage(named: "tmp") )
+
+
+
+               
+                
         
     ]
     
@@ -95,9 +102,7 @@ extension ViewController: YTTPlayerProtocol {
         
     }
     
-    func playerStartPlay(_ player: YTTPlayerTools) {
-        
-    }
+    
     
    
     

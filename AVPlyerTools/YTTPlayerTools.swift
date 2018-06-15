@@ -2,7 +2,7 @@
 //  YTTPlayerTools.swift
 //  AVPlyerTools
 //
-//  Created by qiuweniOS on 2018/6/13.
+//  Created by AndyCui on 2018/6/13.
 //  Copyright © 2018年 AndyCuiYTT. All rights reserved.
 //
 
@@ -16,7 +16,7 @@ protocol YTTPlayerProtocol {
     
     func player(_ player: YTTPlayerTools, cacheTime: TimeInterval, totalTime: TimeInterval)
     
-    func playerStartPlay(_ player: YTTPlayerTools)
+    func player(_ player: YTTPlayerTools, startPlayAt index: Int)
     
     func player(_ player: YTTPlayerTools, loadFailedAt index: Int)
     
@@ -31,7 +31,7 @@ extension YTTPlayerProtocol {
     
     func player(_ player: YTTPlayerTools, cacheTime: TimeInterval, totalTime: TimeInterval){}
     
-    func playerStartPlay(_ player: YTTPlayerTools){}
+    func player(_ player: YTTPlayerTools, startPlayAt index: Int){}
     
     func player(_ player: YTTPlayerTools, loadFailedAt index: Int){}
 }
@@ -57,13 +57,16 @@ class YTTPlayerTools: NSObject {
     var delegate: YTTPlayerProtocol?
     private var currentPlayItem: AVPlayerItem?
     private(set) var currentIndex = 0
-    
+//    private var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    private var timeObserver: Any?
    
     
     
     init(allowBackground: Bool = true) {
         super.init()
+        // 声明接收Remote Control事件
         UIApplication.shared.beginReceivingRemoteControlEvents()
+        // 响应 Remote Control事件
         MPRemoteCommandCenter.shared().playCommand.addTarget(self, action: #selector(play))
         
         MPRemoteCommandCenter.shared().nextTrackCommand.addTarget(self, action: #selector(next))
@@ -83,8 +86,11 @@ class YTTPlayerTools: NSObject {
         }
         player = AVPlayer()
         NotificationCenter.default.addObserver(self, selector: #selector(finish(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-        player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main, using: { [weak self] (cmTime) in
+        timeObserver = player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main, using: { [weak self] (cmTime) in
 
+            
+            print(cmTime.seconds)
+            
             if let totalTime = self?.currentPlayItem?.duration {
 //                print("\(cmTime.seconds)-------")
 //                print(Float(cmTime.value) / Float(cmTime.timescale))
@@ -98,13 +104,26 @@ class YTTPlayerTools: NSObject {
     
     @objc func play() {
         player?.play()
-        delegate?.playerStartPlay(self)
+        delegate?.player(self, startPlayAt: currentIndex)
         if var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo {
             dic[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
             dic[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: self.currentPlayItem?.currentTime().seconds ?? 0)
             dic[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: self.currentPlayItem?.duration.seconds ?? 0)
             MPNowPlayingInfoCenter.default().nowPlayingInfo = dic
         }
+        
+        
+//        
+//        // 后台申请权限,
+//        // 这样做，可以在按home键进入后台后 ，播放一段时间，几分钟吧。但是不能持续播放网络歌曲，若需要持续播放网络歌曲，还需要申请后台任务id
+//        let appdelegate = UIApplication.shared
+//        if appdelegate.applicationState == .background {
+//            let newTask = appdelegate.beginBackgroundTask(expirationHandler: nil)
+//            if bgTask != UIBackgroundTaskInvalid {
+//                appdelegate.endBackgroundTask(bgTask)
+//            }
+//            bgTask = newTask
+//        }
     }
     
     @objc func pause() {
@@ -178,7 +197,6 @@ class YTTPlayerTools: NSObject {
     
     private func exchagePlayItem(_ mediaInfo: YTTMediaInfo) {
         if let url = URL(string: mediaInfo.url) {
-            player?.pause()
             let asset = AVAsset(url: url)
             guard asset.isPlayable else{
                 delegate?.player(self, loadFailedAt: currentIndex)
@@ -193,9 +211,10 @@ class YTTPlayerTools: NSObject {
             // 监听缓存时间
             playItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
             DispatchQueue.main.async {
+                self.player?.pause()
                 self.player?.replaceCurrentItem(with: playItem)
             }
-            
+             
             currentPlayItem = playItem
             setLockScreenPlayingInfo(mediaInfo)
         }
@@ -209,7 +228,9 @@ class YTTPlayerTools: NSObject {
                 if let playerItem = object as? AVPlayerItem {
                     switch playerItem.status {
                     case .readyToPlay:
-                        self.play()
+                        DispatchQueue.main.async {
+                            self.play()
+                        }
                     case .failed:
                         print("加载失败")
                     default:
@@ -229,7 +250,7 @@ class YTTPlayerTools: NSObject {
     }
     
     func setLockScreenPlayingInfo(_ info: YTTMediaInfo) {
-        
+        // Now Playing Center可以在锁屏界面展示音乐的信息，也达到增强用户体验的作用。
         // https://www.jianshu.com/p/458b67f84f27
         var infoDic: [String : Any] = [:]
         infoDic[MPMediaItemPropertyTitle] = info.title
@@ -248,6 +269,11 @@ class YTTPlayerTools: NSObject {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        if let observer = timeObserver {
+            player?.removeTimeObserver(observer)
+            timeObserver = nil
+        }
+        
         currentPlayItem?.removeObserver(self, forKeyPath: "status")
         currentPlayItem?.removeObserver(self, forKeyPath: "loadedTimeRanges")
         MPRemoteCommandCenter.shared().playCommand.removeTarget(self, action: #selector(play))

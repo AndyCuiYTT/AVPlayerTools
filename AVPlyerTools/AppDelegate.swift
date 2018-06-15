@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  AVPlyerTools
 //
-//  Created by qiuweniOS on 2018/6/13.
+//  Created by AndyCui on 2018/6/13.
 //  Copyright © 2018年 AndyCuiYTT. All rights reserved.
 //
 
