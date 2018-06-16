@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		70714E3D20D0A1110028933C /* AVPlyerTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVPlyerTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70714E3D20D0A1110028933C /* AVPlayerTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVPlayerTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70714E4020D0A1110028933C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70714E4220D0A1110028933C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		70714E4520D0A1110028933C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		70714E3420D0A1110028933C = {
 			isa = PBXGroup;
 			children = (
-				70714E3F20D0A1110028933C /* AVPlyerTools */,
+				70714E3F20D0A1110028933C /* AVPlayerTools */,
 				70714E3E20D0A1110028933C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		70714E3E20D0A1110028933C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				70714E3D20D0A1110028933C /* AVPlyerTools.app */,
+				70714E3D20D0A1110028933C /* AVPlayerTools.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		70714E3F20D0A1110028933C /* AVPlyerTools */ = {
+		70714E3F20D0A1110028933C /* AVPlayerTools */ = {
 			isa = PBXGroup;
 			children = (
 				707685C920D0E6DB00FA1A27 /* tmp.png */,
@@ -67,15 +67,15 @@
 				70714E4C20D0A1140028933C /* Info.plist */,
 				70714E5220D0A12E0028933C /* YTTPlayerTools.swift */,
 			);
-			path = AVPlyerTools;
+			path = AVPlayerTools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		70714E3C20D0A1110028933C /* AVPlyerTools */ = {
+		70714E3C20D0A1110028933C /* AVPlayerTools */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70714E4F20D0A1140028933C /* Build configuration list for PBXNativeTarget "AVPlyerTools" */;
+			buildConfigurationList = 70714E4F20D0A1140028933C /* Build configuration list for PBXNativeTarget "AVPlayerTools" */;
 			buildPhases = (
 				70714E3920D0A1110028933C /* Sources */,
 				70714E3A20D0A1110028933C /* Frameworks */,
@@ -85,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = AVPlyerTools;
+			name = AVPlayerTools;
 			productName = AVPlyerTools;
-			productReference = 70714E3D20D0A1110028933C /* AVPlyerTools.app */;
+			productReference = 70714E3D20D0A1110028933C /* AVPlayerTools.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 70714E3820D0A1110028933C /* Build configuration list for PBXProject "AVPlyerTools" */;
+			buildConfigurationList = 70714E3820D0A1110028933C /* Build configuration list for PBXProject "AVPlayerTools" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				70714E3C20D0A1110028933C /* AVPlyerTools */,
+				70714E3C20D0A1110028933C /* AVPlayerTools */,
 			);
 		};
 /* End PBXProject section */
@@ -295,7 +295,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FKX4NKH59R;
-				INFOPLIST_FILE = AVPlyerTools/Info.plist;
+				INFOPLIST_FILE = AVPlayerTools/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,7 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FKX4NKH59R;
-				INFOPLIST_FILE = AVPlyerTools/Info.plist;
+				INFOPLIST_FILE = AVPlayerTools/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -330,7 +330,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		70714E3820D0A1110028933C /* Build configuration list for PBXProject "AVPlyerTools" */ = {
+		70714E3820D0A1110028933C /* Build configuration list for PBXProject "AVPlayerTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70714E4D20D0A1140028933C /* Debug */,
@@ -339,7 +339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70714E4F20D0A1140028933C /* Build configuration list for PBXNativeTarget "AVPlyerTools" */ = {
+		70714E4F20D0A1140028933C /* Build configuration list for PBXNativeTarget "AVPlayerTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70714E5020D0A1140028933C /* Debug */,

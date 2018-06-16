@@ -57,7 +57,7 @@ class ViewController: UIViewController {
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/47741.mp3", title: "你的样子", singer: "雨宗林&杨蔓", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/44566.mp3", title: "不做你幸福的玫瑰", singer: "--", image: UIImage(named: "tmp") ),
                 YTTMediaInfo(url: "http://up.mcyt.net/?down/47781.mp3", title: "天籁之爱", singer: "阿鲁阿卓&泽旺多吉", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47750.mp3", title: "我也有个中国梦", singer: "陈思霓", image: UIImage(named: "tmp") ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47750.mp3", title: "我也有个中国梦", singer: "陈思霓", image: UIImage(named: "tmp") )
             
 
 

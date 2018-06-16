@@ -12,18 +12,61 @@ import MediaPlayer
 
 protocol YTTPlayerProtocol {
     
+    
+    /// 歌曲播放进度
+    ///
+    /// - Parameters:
+    ///   - player: 播放管理器
+    ///   - currentTime: 当前播放时间
+    ///   - totalTime: 总时长
     func player(_ player: YTTPlayerTools, currentTime: TimeInterval, totalTime: TimeInterval)
     
+    /// 歌曲缓存时长
+    ///
+    /// - Parameters:
+    ///   - player: 播放管理器
+    ///   - cacheTime: 当前缓存时间
+    ///   - totalTime: 文件总时长
     func player(_ player: YTTPlayerTools, cacheTime: TimeInterval, totalTime: TimeInterval)
     
+    
+    /// 开始播放
+    ///
+    /// - Parameters:
+    ///   - player: 播放管理器
+    ///   - index: 开始播放文件序列
     func player(_ player: YTTPlayerTools, startPlayAt index: Int)
     
+    
+    /// 播放失败
+    ///
+    /// - Parameters:
+    ///   - player: 播放管理器
+    ///   - index: 播放失败文件序列
     func player(_ player: YTTPlayerTools, playFailedAt index: Int)
     
+    
+    /// 播放结束
+    ///
+    /// - Parameters:
+    ///   - player: 播放管理器
+    ///   - index: 播放失败文件序列
     func player(_ player: YTTPlayerTools, playToEndTimeAt index: Int)
     
+    
+    /// 文件数量
+    ///
+    /// - Parameter player: 播放管理器
+    /// - Returns: 要播放文件数量
     func numberOfMedia(_ player: YTTPlayerTools) -> Int
     
+    
+    /// 获取要播放文件信息
+    ///
+    /// - Parameters:
+    ///   - player: 播放管理器
+    ///   - index: 要播放文件序列
+    /// - Returns: 要播放文件信息
     func player(_ player: YTTPlayerTools, playAt index: Int) -> YTTMediaInfo
 }
 
@@ -121,6 +164,8 @@ class YTTPlayerTools: NSObject {
         
         if var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo {
             dic[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
+            dic[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: self.currentPlayItem?.currentTime().seconds ?? 0)
+            dic[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: self.currentPlayItem?.duration.seconds ?? 0)
             MPNowPlayingInfoCenter.default().nowPlayingInfo = dic
         }
     }
@@ -221,6 +266,7 @@ class YTTPlayerTools: NSObject {
             currentPlayItem = playItem
             setLockScreenPlayingInfo(mediaInfo)
         }
+        
     }
     
     
