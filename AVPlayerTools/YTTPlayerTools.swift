@@ -10,7 +10,16 @@ import UIKit
 import AVFoundation
 import MediaPlayer
 
-protocol YTTPlayerProtocol {
+
+/**
+ *
+ *  如果在控制中心和锁屏页面不需要上一曲下一曲,只需要注释掉 MPRemoteCommandCenter 的监听上一曲下一曲,不要忘记 deinit 中的移除监听相关操作. 如果不添加任何操作将显示全部按钮.
+ *
+ */
+
+
+/// 音视频播放处理回调
+protocol YTTPlayerProtocol: class {
     
     
     /// 歌曲播放进度
@@ -53,6 +62,13 @@ protocol YTTPlayerProtocol {
     ///   - index: 播放失败文件序列
     func player(_ player: YTTPlayerTools, playToEndTimeAt index: Int)
     
+    /// 暂停播放,与后台控制一致
+    ///
+    /// - Parameters:
+    ///   - player: 播放管理器
+    ///   - index: 暂停音频序列
+    func player(_ player: YTTPlayerTools, pauseAt index: Int)
+    
     
     /// 文件数量
     ///
@@ -81,6 +97,8 @@ extension YTTPlayerProtocol {
     func player(_ player: YTTPlayerTools, playFailedAt index: Int){}
     
     func player(_ player: YTTPlayerTools, playToEndTimeAt index: Int){}
+    
+    func player(_ player: YTTPlayerTools, pauseAt index: Int){}
 }
 
 struct YTTMediaInfo {
@@ -99,8 +117,8 @@ struct YTTMediaInfo {
  */
 
 class YTTPlayerTools: NSObject {
-
-    var delegate: YTTPlayerProtocol?
+    
+    weak var delegate: YTTPlayerProtocol?
     private var currentPlayItem: AVPlayerItem?
     private var currentIndex = 0
     private var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
@@ -108,6 +126,8 @@ class YTTPlayerTools: NSObject {
     private(set) lazy var player: AVPlayer = {
         return AVPlayer()
     }()
+    
+    private(set) var isPlaying: Bool = false
     
     
     init(allowBackground: Bool = true) {
@@ -137,7 +157,7 @@ class YTTPlayerTools: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(finish(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         
         timeObserver = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main, using: { [weak self] (cmTime) in
-
+            
             if cmTime.seconds > 0 && cmTime.seconds < 2 {
                 if var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo {
                     dic[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: self?.currentPlayItem?.currentTime().seconds ?? 0)
@@ -145,11 +165,11 @@ class YTTPlayerTools: NSObject {
                     MPNowPlayingInfoCenter.default().nowPlayingInfo = dic
                 }
             }
-
+            
             if let totalTime = self?.currentPlayItem?.duration {
-//                print("\(cmTime.seconds)-------")
-//                print(Float(cmTime.value) / Float(cmTime.timescale))
-//                CMTimeGetSeconds(cmTime)
+                //                print("\(cmTime.seconds)-------")
+                //                print(Float(cmTime.value) / Float(cmTime.timescale))
+                //                CMTimeGetSeconds(cmTime)
                 self?.delegate?.player(self!, currentTime: cmTime.seconds, totalTime: totalTime.seconds)
             }
         })
@@ -161,7 +181,7 @@ class YTTPlayerTools: NSObject {
     @objc func play() {
         player.play()
         delegate?.player(self, startPlayAt: currentIndex)
-        
+        isPlaying = true
         if var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo {
             dic[MPNowPlayingInfoPropertyPlaybackRate] = 1.0
             dic[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: self.currentPlayItem?.currentTime().seconds ?? 0)
@@ -172,12 +192,14 @@ class YTTPlayerTools: NSObject {
     
     @objc func pause() {
         player.pause()
+        isPlaying = false
+        delegate?.player(self, pauseAt: currentIndex)
         if var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo {
             dic[MPNowPlayingInfoPropertyPlaybackRate] = 0.0
             dic[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: self.currentPlayItem?.currentTime().seconds ?? 0)
             MPNowPlayingInfoCenter.default().nowPlayingInfo = dic
         }
-       
+        
         
     }
     
@@ -200,7 +222,6 @@ class YTTPlayerTools: NSObject {
     }
     
     @objc func previous() {
-        
         if currentIndex > 0 {
             exchagePlayItem(atIndex: currentIndex - 1)
         }else if currentIndex == 0 {
@@ -208,20 +229,22 @@ class YTTPlayerTools: NSObject {
                 exchagePlayItem(atIndex: count - 1)
             }
         }
-    
+        
     }
     
     
-    func currentTime(_ second: TimeInterval) {
+    func currentTime(_ second: TimeInterval, continuePlay: Bool = true) {
         
         if let totalTime = currentPlayItem?.duration {
             guard totalTime.seconds > second else {
                 return
             }
-            pause()
+            player.pause()
             let time = CMTimeMakeWithSeconds(second, totalTime.timescale)
             player.seek(to: time, toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero, completionHandler: { (flag) in
-                self.play()
+                if continuePlay {
+                    self.play()
+                }
             })
             if var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo {
                 dic[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: second)
@@ -231,6 +254,7 @@ class YTTPlayerTools: NSObject {
     }
     
     @objc private func finish(_ notification: Notification) {
+        isPlaying = false
         delegate?.player(self, playToEndTimeAt: currentIndex)
     }
     
@@ -245,6 +269,7 @@ class YTTPlayerTools: NSObject {
     }
     
     private func exchagePlayItem(_ mediaInfo: YTTMediaInfo) {
+        isPlaying = false
         if let url = URL(string: mediaInfo.url) {
             let asset = AVAsset(url: url)
             guard asset.isPlayable else{
@@ -262,7 +287,7 @@ class YTTPlayerTools: NSObject {
             DispatchQueue.main.async {
                 self.player.replaceCurrentItem(with: playItem)
             }
-             
+            
             currentPlayItem = playItem
             setLockScreenPlayingInfo(mediaInfo)
         }
