@@ -32,35 +32,35 @@ class ViewController: UIViewController {
     
     
     let tools = YTTPlayerTools()
-    let data = [YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47744.mp3", title: "一万个理由", singer: "郑源", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47740.mp3", title: "洋葱", singer: "五月天", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47746.mp3", title: "为什么相爱的人不能在一起", singer: "郑源", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47745.mp3", title: "我不后悔", singer: "郑源", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47754.mp3", title: "飞行时刻", singer: "韩红", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47747.mp3", title: "偏爱", singer: "张芸京", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47752.mp3", title: "A Little Love", singer: "冯曦妤", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47734.mp3", title: "哑巴", singer: "薛之谦", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/46879.mp3", title: "等一分钟", singer: "Dj晓杰&彭芳", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47715.mp3", title: "Take Me Home Country Road", singer: "John Denver", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47751.mp3", title: "遥不可及的你", singer: "花粥", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47748.mp3", title: "春泥", singer: "庾澄庆", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47753.mp3", title: "faded", singer: "mathias fritsche", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47757.mp3", title: "走着走着就散了", singer: "庄心妍", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47756.mp3", title: "温柔与霸道", singer: "杭娇", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47780.mp3", title: "谁能比我更爱你", singer: "崔忠华", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47706.mp3", title: "我是真的为你哭了", singer: "韩信", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47702.mp3", title: "姑娘我爱上你", singer: "DJ小鱼儿&天孪兄弟", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47699.mp3", title: "太多", singer: "Dj伟伟&孙露", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47741.mp3", title: "你的样子", singer: "雨宗林&杨蔓", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/44566.mp3", title: "不做你幸福的玫瑰", singer: "--", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47781.mp3", title: "天籁之爱", singer: "阿鲁阿卓&泽旺多吉", image: UIImage(named: "tmp") ),
-                YTTMediaInfo(url: "http://up.mcyt.net/?down/47750.mp3", title: "我也有个中国梦", singer: "陈思霓", image: UIImage(named: "tmp") )
+    let data = [YTTMediaInfo(url: "http://up.mcyt.net/?down/32474.mp3", title: "再见青春", singer: "许哲", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/32473.mp3", title: "存在", singer: "贝贝", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/32472.mp3", title: "恒星", singer: "张鑫鑫", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47744.mp3", title: "一万个理由", singer: "郑源", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47740.mp3", title: "洋葱", singer: "五月天", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47746.mp3", title: "为什么相爱的人不能在一起", singer: "郑源", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47745.mp3", title: "我不后悔", singer: "郑源", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47754.mp3", title: "飞行时刻", singer: "韩红", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47747.mp3", title: "偏爱", singer: "张芸京", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47752.mp3", title: "A Little Love", singer: "冯曦妤", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47734.mp3", title: "哑巴", singer: "薛之谦", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/46879.mp3", title: "等一分钟", singer: "Dj晓杰&彭芳", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47715.mp3", title: "Take Me Home Country Road", singer: "John Denver", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47751.mp3", title: "遥不可及的你", singer: "花粥", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47748.mp3", title: "春泥", singer: "庾澄庆", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47753.mp3", title: "faded", singer: "mathias fritsche", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47757.mp3", title: "走着走着就散了", singer: "庄心妍", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47756.mp3", title: "温柔与霸道", singer: "杭娇", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47780.mp3", title: "谁能比我更爱你", singer: "崔忠华", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47706.mp3", title: "我是真的为你哭了", singer: "韩信", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47702.mp3", title: "姑娘我爱上你", singer: "DJ小鱼儿&天孪兄弟", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47699.mp3", title: "太多", singer: "Dj伟伟&孙露", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47741.mp3", title: "你的样子", singer: "雨宗林&杨蔓", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/44566.mp3", title: "不做你幸福的玫瑰", singer: "--", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47781.mp3", title: "天籁之爱", singer: "阿鲁阿卓&泽旺多吉", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" ),
+                YTTMediaInfo(url: "http://up.mcyt.net/?down/47750.mp3", title: "我也有个中国梦", singer: "陈思霓", image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1538897064&di=b712ac613bf81678743b5853cd206be6&imgtype=jpg&er=1&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F30%2F20140730012845_tiG3J.thumb.700_0.png" )
             
 
-
+  
 
                
                 
@@ -70,7 +70,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+       
+       
         tools.delegate = self
         tools.exchagePlayItem(atIndex: 0)
     }

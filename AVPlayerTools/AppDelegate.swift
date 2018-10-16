@@ -16,11 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var timer: Timer?
     private var timerCount: Int = 0
-    private var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    private var bgTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        window?.makeKeyAndVisible()
+        window?.rootViewController = SecondViewController()
         return true
     }
 
@@ -41,8 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         timerCount = 0
         let newTask = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
-        if bgTask != UIBackgroundTaskInvalid && newTask != UIBackgroundTaskInvalid {
-            UIApplication.shared.endBackgroundTask(bgTask)
+        if bgTask != UIBackgroundTaskIdentifier.invalid && newTask != UIBackgroundTaskIdentifier.invalid {
+            UIApplication.shared.endBackgroundTask(convertToUIBackgroundTaskIdentifier(bgTask.rawValue))
             bgTask = newTask
         }
         
@@ -53,9 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         timer?.invalidate()
         timer = nil
         timerCount = 0
-        if bgTask != UIBackgroundTaskInvalid {
-            application.endBackgroundTask(bgTask)
-            bgTask = UIBackgroundTaskInvalid
+        if bgTask != UIBackgroundTaskIdentifier.invalid {
+            application.endBackgroundTask(convertToUIBackgroundTaskIdentifier(bgTask.rawValue))
+            bgTask = UIBackgroundTaskIdentifier.invalid
         }
         
         
@@ -70,3 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIBackgroundTaskIdentifier(_ input: Int) -> UIBackgroundTaskIdentifier {
+	return UIBackgroundTaskIdentifier(rawValue: input)
+}

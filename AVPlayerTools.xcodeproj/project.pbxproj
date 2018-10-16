@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70682C6A2160AF73007F114F /* YTTMediaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70682C692160AF73007F114F /* YTTMediaInfo.swift */; };
+		70682C6C2160B080007F114F /* YTTPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70682C6B2160B080007F114F /* YTTPlayerView.swift */; };
+		70682C6F2160B278007F114F /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 70682C6E2160B278007F114F /* Placeholder.png */; };
+		70682C732160C226007F114F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70682C722160C226007F114F /* SecondViewController.swift */; };
 		70714E4120D0A1110028933C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70714E4020D0A1110028933C /* AppDelegate.swift */; };
 		70714E4320D0A1110028933C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70714E4220D0A1110028933C /* ViewController.swift */; };
 		70714E4620D0A1110028933C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70714E4420D0A1110028933C /* Main.storyboard */; };
@@ -14,9 +18,18 @@
 		70714E4B20D0A1140028933C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70714E4920D0A1140028933C /* LaunchScreen.storyboard */; };
 		70714E5320D0A12E0028933C /* YTTPlayerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70714E5220D0A12E0028933C /* YTTPlayerTools.swift */; };
 		707685CA20D0E6DC00FA1A27 /* tmp.png in Resources */ = {isa = PBXBuildFile; fileRef = 707685C920D0E6DB00FA1A27 /* tmp.png */; };
+		70C7770921685E8600FE22F8 /* open_fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C7770521685E8600FE22F8 /* open_fullscreen.png */; };
+		70C7770C21685E8600FE22F8 /* close_fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C7770821685E8600FE22F8 /* close_fullscreen.png */; };
+		70C777112168608200FE22F8 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C7770F2168608200FE22F8 /* play.png */; };
+		70C777122168608200FE22F8 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C777102168608200FE22F8 /* pause.png */; };
+		70F4A660217585B500D6E036 /* qnyn_juqing.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 70F4A65F2175855B00D6E036 /* qnyn_juqing.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70682C692160AF73007F114F /* YTTMediaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTMediaInfo.swift; sourceTree = "<group>"; };
+		70682C6B2160B080007F114F /* YTTPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTPlayerView.swift; sourceTree = "<group>"; };
+		70682C6E2160B278007F114F /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
+		70682C722160C226007F114F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		70714E3D20D0A1110028933C /* AVPlayerTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVPlayerTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70714E4020D0A1110028933C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70714E4220D0A1110028933C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +39,11 @@
 		70714E4C20D0A1140028933C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70714E5220D0A12E0028933C /* YTTPlayerTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTTPlayerTools.swift; sourceTree = "<group>"; };
 		707685C920D0E6DB00FA1A27 /* tmp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tmp.png; sourceTree = "<group>"; };
+		70C7770521685E8600FE22F8 /* open_fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open_fullscreen.png; sourceTree = "<group>"; };
+		70C7770821685E8600FE22F8 /* close_fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_fullscreen.png; sourceTree = "<group>"; };
+		70C7770F2168608200FE22F8 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		70C777102168608200FE22F8 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		70F4A65F2175855B00D6E036 /* qnyn_juqing.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = qnyn_juqing.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +57,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70682C682160A94A007F114F /* PlayerTools */ = {
+			isa = PBXGroup;
+			children = (
+				70682C6D2160B26B007F114F /* Resources */,
+				70714E5220D0A12E0028933C /* YTTPlayerTools.swift */,
+				70682C692160AF73007F114F /* YTTMediaInfo.swift */,
+				70682C6B2160B080007F114F /* YTTPlayerView.swift */,
+			);
+			path = PlayerTools;
+			sourceTree = "<group>";
+		};
+		70682C6D2160B26B007F114F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				70C7770821685E8600FE22F8 /* close_fullscreen.png */,
+				70C7770521685E8600FE22F8 /* open_fullscreen.png */,
+				70C777102168608200FE22F8 /* pause.png */,
+				70C7770F2168608200FE22F8 /* play.png */,
+				70682C6E2160B278007F114F /* Placeholder.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		70714E3420D0A1110028933C = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +99,8 @@
 		70714E3F20D0A1110028933C /* AVPlayerTools */ = {
 			isa = PBXGroup;
 			children = (
+				70F4A65F2175855B00D6E036 /* qnyn_juqing.mp4 */,
+				70682C682160A94A007F114F /* PlayerTools */,
 				707685C920D0E6DB00FA1A27 /* tmp.png */,
 				70714E4020D0A1110028933C /* AppDelegate.swift */,
 				70714E4220D0A1110028933C /* ViewController.swift */,
@@ -65,7 +108,7 @@
 				70714E4720D0A1140028933C /* Assets.xcassets */,
 				70714E4920D0A1140028933C /* LaunchScreen.storyboard */,
 				70714E4C20D0A1140028933C /* Info.plist */,
-				70714E5220D0A12E0028933C /* YTTPlayerTools.swift */,
+				70682C722160C226007F114F /* SecondViewController.swift */,
 			);
 			path = AVPlayerTools;
 			sourceTree = "<group>";
@@ -102,6 +145,7 @@
 				TargetAttributes = {
 					70714E3C20D0A1110028933C = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -133,10 +177,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F4A660217585B500D6E036 /* qnyn_juqing.mp4 in Resources */,
+				70C7770C21685E8600FE22F8 /* close_fullscreen.png in Resources */,
+				70C777112168608200FE22F8 /* play.png in Resources */,
 				70714E4B20D0A1140028933C /* LaunchScreen.storyboard in Resources */,
 				70714E4820D0A1140028933C /* Assets.xcassets in Resources */,
 				70714E4620D0A1110028933C /* Main.storyboard in Resources */,
+				70C777122168608200FE22F8 /* pause.png in Resources */,
 				707685CA20D0E6DC00FA1A27 /* tmp.png in Resources */,
+				70C7770921685E8600FE22F8 /* open_fullscreen.png in Resources */,
+				70682C6F2160B278007F114F /* Placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,8 +197,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70682C732160C226007F114F /* SecondViewController.swift in Sources */,
+				70682C6C2160B080007F114F /* YTTPlayerView.swift in Sources */,
 				70714E4320D0A1110028933C /* ViewController.swift in Sources */,
 				70714E4120D0A1110028933C /* AppDelegate.swift in Sources */,
+				70682C6A2160AF73007F114F /* YTTMediaInfo.swift in Sources */,
 				70714E5320D0A12E0028933C /* YTTPlayerTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +356,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AndyCuiYTT.AVPlyerTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -322,7 +375,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = AndyCuiYTT.AVPlyerTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
